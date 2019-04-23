@@ -1,12 +1,12 @@
 import os
 
-DEBUG = True
+# DEBUG = True
 
 SECRET_KEY = os.urandom(24)
 
 HOSTNAME = '127.0.0.1'
 PORT = '3306'
-DATABASE = 'flask_demo6'
+DATABASE = 'flask_demo7'
 USERNAME = 'root'
 PASSWORD = 'zwk11011'
 DB_URI = 'mysql+mysqldb://{}:{}@{}:{}/{}?charset=utf8'.format(USERNAME, PASSWORD, HOSTNAME, PORT, DATABASE)

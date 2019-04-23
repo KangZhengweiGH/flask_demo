@@ -14,8 +14,6 @@ from flask import Blueprint
 account = Blueprint('account', __name__, template_folder='templates', static_folder='static')
 
 
-
-
 @account.route('/login/', methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
@@ -27,7 +25,7 @@ def login():
     if user:
         session['user_id'] = user.id
         session.permanent = True
-        return redirect(url_for('account.index'))
+        return redirect(url_for('main.index'))
     return render_template('login.html', error3='账号或密码错误')
 
 
@@ -36,7 +34,7 @@ def logout():
     # session.pop('user_id')
     # del session('user_id')
     session.clear()
-    return redirect(url_for('account.index'))
+    return redirect(url_for('main.index'))
 
 
 @account.route('/regist/', methods=['GET', 'POST'])
@@ -92,4 +90,4 @@ def userinfo(user_id):
         }
         return jsonify(data)
 
-    return redirect(url_for('account.index'))
+    return redirect(url_for('main.index'))

@@ -25,8 +25,15 @@
         </ul>
     </td>
     <td>
-        啊手动阀手动阀手动阀手动阀
+        <ul>
+            {% for book in books_data %}
+                <p><a href="#">{{ book.name }}:</a>{{ book.introduce }}</p>
+            {% endfor %}
+            
+        </ul>
     </td>
   </tr>
 </table>
+    <a href="{{ url_for('book.add_book') }}"><h1>加书</h1></a>
+    <a href="{{ url_for('book.add_category') }}"><h1>加书类</h1></a>
 {% endblock %}
