@@ -10,25 +10,11 @@ class User(db.Model):
     vip = db.Column(db.BOOLEAN, default=False)
     logintime = db.Column(db.DateTime, nullable=True)
 
-    # def __init__(self, name, telnumber, password, vip=False):
-    #     self.name = name
-    #     self.telnumber = telnumber
-    #     self.password = password
-    #
-    # def __repr__(self):
-    #     return '<User %r>' % self.name
-
 
 class Category(db.Model):
     __tablename__ = 'category'
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(50), nullable=False)
-    # def __init__(self, name):
-    #     self.name = name
-    #
-    # def __repr__(self):
-    #     return '<Category %r>' % self.name
-    #
 
 
 class Book(db.Model):
@@ -72,11 +58,8 @@ class Chapter(db.Model):
 
 category_book = db.Table('category_book',
                          db.Column('category_id', db.Integer, db.ForeignKey('category.id'), primary_key=True),
-                         db.Column('book_id', db.Integer, db.ForeignKey('book.id'), primary_key=True),
-
-)
+                         db.Column('book_id', db.Integer, db.ForeignKey('book.id'), primary_key=True),)
 
 category_chapter = db.Table('category_chapter',
-                         db.Column('category_id', db.Integer, db.ForeignKey('category.id'), primary_key=True),
-                         db.Column('chapter_id', db.Integer, db.ForeignKey('chapter.id'), primary_key=True)
-)
+                            db.Column('category_id', db.Integer, db.ForeignKey('category.id'), primary_key=True),
+                            db.Column('chapter_id', db.Integer, db.ForeignKey('chapter.id'), primary_key=True))

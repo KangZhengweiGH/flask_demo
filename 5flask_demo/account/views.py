@@ -14,9 +14,6 @@ from flask import Blueprint
 account = Blueprint('account', __name__, template_folder='templates', static_folder='static')
 
 
-@account.route('/')
-def index():
-    return render_template('index.html')
 
 
 @account.route('/login/', methods=['GET', 'POST'])
