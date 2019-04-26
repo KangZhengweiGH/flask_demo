@@ -1,9 +1,5 @@
 # encoding: utf-8
-from flask import (session,
-                   render_template,
-                   request,
-                   jsonify)
-import json
+from flask import render_template, request, jsonify
 from extend import db
 from modles import Book, Category
 from flask import Blueprint
@@ -19,13 +15,15 @@ def add_book():
     need_vip = request.form.get('need_vip')
     introduce = request.form.get('introduce')
     book_image = request.form.get('book_image')
-    category_id = request.form.get('category_id')
+    category_id1 = request.form.get('category_id1')
+    category_id2 = request.form.get('category_id2')
 
     if name:
-        bookitem = Book(name=name, introduce=introduce, book_image=book_image, need_vip=need_vip,  category_id=category_id)
+        bookitem = Book(name=name, introduce=introduce, book_image=book_image,
+                        need_vip=need_vip, category_id=[category_id1,category_id2])
         db.session.add(bookitem)
         db.session.commit()
-        return "okokoko"
+        return '''<a href="/book">返回</a>'''
     return '名字不能为空aaaaaaa'
 
 

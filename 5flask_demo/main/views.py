@@ -1,14 +1,9 @@
 # encoding: utf-8
-from flask import (session,
-                   render_template,
-                   url_for,
-                   redirect,
-                   request,
-                   jsonify)
-
-from extend import db
-from modles import User
+from flask import session, render_template
 from flask import Blueprint
+import time
+from __init__ import celery
+from modles import User
 
 main = Blueprint('main', __name__, template_folder='templates', static_folder='static')
 
@@ -26,3 +21,15 @@ def user_status():
         if user:
             return {'user': user}
     return {}
+
+
+@celery.task
+def long():
+    time.sleep(10)
+
+
+@main.route('/long')
+def long_io():
+    long()
+    return 'I have sleeped 10s'
+

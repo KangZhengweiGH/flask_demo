@@ -1,3 +1,4 @@
+# coding=utf-8
 from extend import db
 
 
@@ -11,11 +12,15 @@ class User(db.Model):
     isdelate = db.Column(db.BOOLEAN, default=False)
     logintime = db.Column(db.DateTime, nullable=True)
 
-#
-# categorys = db.Table('categorys',
-#     db.Column('category_id', db.Integer, db.ForeignKey('category.id')),
-#     db.Column('category_id', db.Integer, db.ForeignKey('category.id'))
-# )
+
+category_book = db.Table('category_book',
+                         db.Column('category_id', db.Integer, db.ForeignKey('category.id'), primary_key=True),
+                         db.Column('book_id', db.Integer, db.ForeignKey('book.id'), primary_key=True))
+
+
+category_chapter = db.Table('category_chapter',
+                            db.Column('category_id', db.Integer, db.ForeignKey('category.id'), primary_key=True),
+                            db.Column('chapter_id', db.Integer, db.ForeignKey('chapter.id'), primary_key=True))
 
 
 class Category(db.Model):
@@ -41,10 +46,10 @@ class Book(db.Model):
     introduce = db.Column(db.Text, nullable=True)
     book_image = db.Column(db.String(50), nullable=True)
     isdelate = db.Column(db.BOOLEAN, default=False)
+    # 这个外键就不需要了，呀好坑
+    # category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
 
-    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
-
-    category = db.relationship('Category', backref=db.backref('books'))
+    category = db.relationship('Category', secondary=category_book, backref=db.backref('books'))
 
 
 class Chapter(db.Model):
@@ -54,12 +59,11 @@ class Chapter(db.Model):
     need_vip = db.Column(db.BOOLEAN, default=False)
 
     book_id = db.Column(db.Integer, db.ForeignKey('book.id'))
-
     book = db.relationship('Book', backref=db.backref('chapters'))
 
+    category = db.relationship('Category', secondary=category_chapter, backref=db.backref('chapters'))
 
 
-#
 # class Artical(db.Model):
 #     __tablename__ = 'articals'
 #     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -72,15 +76,4 @@ class Chapter(db.Model):
 #     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
 #     name = db.Column(db.String(50), nullable=False)
 #     content = db.Column(db.text, nullable=False)
-
-
-category_book = db.Table('category_book',
-                         db.Column('category_id', db.Integer, db.ForeignKey('category.id'), primary_key=True),
-                         db.Column('book_id', db.Integer, db.ForeignKey('book.id'), primary_key=True),)
-
-
-category_chapter = db.Table('category_chapter',
-                            db.Column('category_id', db.Integer, db.ForeignKey('category.id'), primary_key=True),
-                            db.Column('chapter_id', db.Integer, db.ForeignKey('chapter.id'), primary_key=True))
-
 

@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/5flask_demo.iml" filepath="$PROJECT_DIR$/.idea/5flask_demo.iml" />
-      <module fileurl="file://$USER_HOME$/Desktop/gitpro/flask-base/.idea/flask-base.iml" filepath="$USER_HOME$/Desktop/gitpro/flask-base/.idea/flask-base.iml" />
     </modules>
   </component>
 </project>

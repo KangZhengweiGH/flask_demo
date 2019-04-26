@@ -1,5 +1,4 @@
 # encoding: utf-8
-from flask import session, render_template
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
 from extend import db
@@ -9,7 +8,6 @@ import config
 from modles import User, Book, Chapter, Category
 
 app = creat_app(config)
-
 manager = Manager(app)
 
 # 绑定app和db
