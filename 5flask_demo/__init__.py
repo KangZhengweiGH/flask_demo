@@ -12,9 +12,9 @@ def creat_app(config_name):
     app.config.from_object(config_name)
     register_celery(app)
     db.init_app(app)
-    from account.views import account as account_buleprint
-    from book.views import book as book_buleprint
-    from main.views import main as main_buleprint
+    from account import account as account_buleprint
+    from book import book as book_buleprint
+    from main import main as main_buleprint
     from test.views import test as test_buleprint
     app.register_blueprint(account_buleprint, url_prefix='/account')
     app.register_blueprint(book_buleprint, url_prefix='/book')

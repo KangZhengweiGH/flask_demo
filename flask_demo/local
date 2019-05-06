@@ -1,0 +1,4 @@
+export FLASK_APP=manager.py
+export FLASK_ENV=development
+flask run
+#celery -A app worker --loglevel=info --config=celeryconfig

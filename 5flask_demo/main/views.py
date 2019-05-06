@@ -1,6 +1,5 @@
 # encoding: utf-8
-from flask import session, render_template
-from flask import Blueprint
+from flask import session, render_template, Blueprint
 import time
 from __init__ import celery
 from modles import User

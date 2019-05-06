@@ -1,0 +1,92 @@
+/usr/local/lib/python3.6/dist-packages/celery/platforms.py:801: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2019-04-29 20:20:10,138: INFO/MainProcess] Connected to redis://localhost:6379//
+[2019-04-29 20:20:10,152: INFO/MainProcess] mingle: searching for neighbors
+[2019-04-29 20:20:11,189: WARNING/MainProcess] /usr/local/lib/python3.6/dist-packages/celery/app/control.py:54: DuplicateNodenameWarning: Received multiple replies from node name: celery@ubuntu.
+Please make sure you give each node a unique nodename using
+the celery worker `-n` option.
+  pluralize(len(dupes), 'name'), ', '.join(sorted(dupes)),
+[2019-04-29 20:20:11,189: INFO/MainProcess] mingle: all alone
+[2019-04-29 20:20:11,202: INFO/MainProcess] celery@ubuntu ready.
+
+worker: Warm shutdown (MainProcess)
+ 
+ -------------- celery@ubuntu v4.3.0 (rhubarb)
+---- **** ----- 
+--- * ***  * -- Linux-4.18.0-17-generic-x86_64-with-Ubuntu-18.04-bionic 2019-04-29 20:20:10
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         app:0x7f34eb664da0
+- ** ---------- .> transport:   redis://localhost:6379//
+- ** ---------- .> results:     redis://localhost:6379/
+- *** --- * --- .> concurrency: 1 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . app.main.task.long
+
+/usr/local/lib/python3.6/dist-packages/celery/platforms.py:801: RuntimeWarning: You're running the worker with superuser privileges: this is
+absolutely not recommended!
+
+Please specify a different user using the --uid option.
+
+User information: uid=0 euid=0 gid=0 egid=0
+
+  uid=uid, euid=euid, gid=gid, egid=egid,
+[2019-04-29 20:33:09,530: INFO/MainProcess] Connected to redis://localhost:6379//
+[2019-04-29 20:33:09,560: INFO/MainProcess] mingle: searching for neighbors
+[2019-04-29 20:33:10,586: INFO/MainProcess] mingle: all alone
+[2019-04-29 20:33:10,596: INFO/MainProcess] celery@ubuntu ready.
+
+worker: Warm shutdown (MainProcess)
+ 
+ -------------- celery@ubuntu v4.3.0 (rhubarb)
+---- **** ----- 
+--- * ***  * -- Linux-4.18.0-17-generic-x86_64-with-Ubuntu-18.04-bionic 2019-04-29 20:33:09
+-- * - **** --- 
+- ** ---------- [config]
+- ** ---------- .> app:         app:0x7f3445fb4da0
+- ** ---------- .> transport:   redis://localhost:6379//
+- ** ---------- .> results:     redis://localhost:6379/
+- *** --- * --- .> concurrency: 1 (prefork)
+-- ******* ---- .> task events: OFF (enable -E to monitor tasks in this worker)
+--- ***** ----- 
+ -------------- [queues]
+                .> celery           exchange=celery(direct) key=celery
+                
+
+[tasks]
+  . app.main.task.long
+
+ * Serving Flask app "manager.py" (lazy loading)
+ * Environment: development
+ * Debug mode: on
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 262-625-097
+127.0.0.1 - - [29/Apr/2019 20:36:00] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2019 20:36:00] "GET /static/css/base.css HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2019 20:36:00] "GET /static/images/ziji.jpg HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2019 20:36:00] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [29/Apr/2019 20:36:03] "GET /long HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2019 20:37:17] "GET /long HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2019 20:37:19] "GET /long HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2019 20:47:35] "GET /long HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2019 20:47:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2019 20:47:38] "GET /static/css/base.css HTTP/1.1" 304 -
+127.0.0.1 - - [29/Apr/2019 20:47:38] "GET /static/images/ziji.jpg HTTP/1.1" 304 -
+I have waited for 10s
+I have waited for 10s
+I have waited for 10s
+I have waited for 10s
